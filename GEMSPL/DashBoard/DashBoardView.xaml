@@ -1,0 +1,185 @@
+﻿<UserControl x:Class="GEMSPL.DashBoard.DashBoardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:clock="clr-namespace:GEMSPL.Clock"
+             xmlns:entity="clr-namespace:GEMSPL.Entity"
+             mc:Ignorable="d" 
+              HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Loaded="UserControl_Loaded_1" Unloaded="UserControl_Unloaded_1">
+    <UserControl.Resources>
+      
+            
+        
+        <HierarchicalDataTemplate DataType="{x:Type entity:ULB}" ItemsSource="{Binding Path=Zones}">
+            <TextBlock Background="Black" Text="{Binding Path=Name}" Foreground="White" FontStyle="Italic">
+                <TextBlock.ContextMenu>
+                    <ContextMenu  >
+ 
+                        <MenuItem Name="AddZone" Header="Add Zone" Click="AddZone_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                        <MenuItem Name="DeleteULB" Header="Delete ULB" Click="DeleteULB_Click_1" Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+
+        <HierarchicalDataTemplate DataType="{x:Type entity:Zone}" ItemsSource="{Binding Path=Areas}">
+            <TextBlock  Background="Black" Text="{Binding Path=Name}" Foreground="White" FontStyle="Italic" >
+                <TextBlock.ContextMenu>
+                    <ContextMenu >
+                        
+                        <MenuItem Name="AddArea" Header="Add Area" Click="AddArea_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                        <MenuItem Name="DeleteZone" Header="Delete Zone" Click="DeleteULB_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+
+
+        <HierarchicalDataTemplate DataType="{x:Type entity:Area}" ItemsSource="{Binding Path=Modules}">
+
+            <TextBlock Background="Black" Text="{Binding Path=Name}" Foreground="White" FontStyle="Italic">
+                <TextBlock.ContextMenu>
+                    <ContextMenu >
+                        <MenuItem Name="ModifyTemplate" Header="Modify Template" Click="ModifyTemplate_Click_1" />
+                        <MenuItem Name="UpdateAreaSchedule" Header="Update Schedule" Click="UpdateAreaSchedule_Click_1" />
+                        
+                        <Separator/>
+                        <MenuItem Name="AddModule" Header="Add Module" Click="AddModule_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                        <MenuItem Name="DeleteArea" Header="Delete Area" Click="DeleteULB_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                        
+                        <Separator/>
+                        <MenuItem Name="SavingsReport" Header="Savings  Report" Click="SavingsReport_Click_1" />
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </HierarchicalDataTemplate>
+
+        <DataTemplate DataType="{x:Type entity:Module}">
+            <TextBlock Background="Black" Text="{Binding Path=Location}" Foreground="White" FontStyle="Italic">
+                <TextBlock.ContextMenu>
+                    <ContextMenu >
+                       
+                        
+                        <MenuItem Name="T1ON" Header="T1 ON" Click="T1ON_Click_1" />
+                        <MenuItem Name="T1OFF" Header="T1 OFF" Click="T1OFF_Click_1" />
+                        <MenuItem Name="T2ON" Header="T2 ON" Click="T2ON_Click_1" />
+                        <MenuItem Name="T2OFF" Header="T2 OFF" Click="T2OFF_Click_1" />
+                        <Separator/>
+                        <MenuItem Name="ReadClock" Header="Read Module Clock" Click="ReadClock_Click_1" />
+                        <MenuItem Name="UpdateClock" Header="Update Module Clock" Click="UpdateClock_Click_1" />
+                        <Separator/>
+                        <MenuItem Name="ReadSchedule" Header="Read Schedule" Click="ReadSchedule_Click_1" />
+                        <MenuItem Name="UpdateSchedule" Header="Update Schedule" Click="UpdateSchedule_Click_1" />
+                        <Separator/>
+                        <MenuItem Name="ReadMeter" Header="Read Energy Meter" Click="ReadMeter_Click_1" />
+                        <Separator/>
+                        <MenuItem Name="InstallationReport" Header="Installation  Report" Click="InstallationReport_Click_1" />
+                        <MenuItem Name="SavingsReport" Header="Savings  Report" Click="SavingsReport_Click_1" />
+                        <MenuItem Name="Calibration" Header="Calibration" Click="Calibration_Click_1" />
+                        <Separator/>
+                        <MenuItem Name="EditModule" Header="Edit Module" Click="EditModule_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                        <MenuItem Name="DeleteModule" Header="Delete Module" Click="DeleteULB_Click_1"
+                                  Visibility="{Binding RelativeSource={RelativeSource FindAncestor,
+        AncestorType=ContextMenu}, Path=PlacementTarget.DataContext.Visibility}"/>
+                    </ContextMenu>
+                </TextBlock.ContextMenu>
+            </TextBlock>
+        </DataTemplate>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="MinWidth" Value="125"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="15" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinHeight" Value="30"/>
+
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="MinWidth" Value="100"/>
+            <Setter Property="MinHeight" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </UserControl.Resources>
+    <DockPanel Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.35*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+            <GroupBox  Grid.Column="0" MinHeight="168" MinWidth="350">
+                <GroupBox.Header>
+                    <Label Foreground="White" Content="System Clock" Background="Black" BorderBrush="Black" BorderThickness="0"
+                             HorizontalAlignment="Center" Width="Auto" HorizontalContentAlignment="Center" MinWidth="20"/>
+                </GroupBox.Header>
+                <clock:ClockDisplay x:Name="SystemClockDisplay" />
+            </GroupBox>
+            <GroupBox Grid.Column="1" MinHeight="168" Margin="10,0,0,0">
+
+                <GroupBox.Header>
+                    <Label Foreground="White" Content="Manage" Background="Black" BorderBrush="Black" BorderThickness="0"
+                             HorizontalAlignment="Center" Width="Auto" HorizontalContentAlignment="Center" MinWidth="20"/>
+                </GroupBox.Header>
+                <UniformGrid  Name="ActionsGrid" HorizontalAlignment="Center" Rows="1" Columns="3">
+            
+                    <Button Grid.Column="0" Name="Password"  Content="Password"  Click="Password_Click_1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    <Button Grid.Column="1" Name="PortSetting" Content="Port Settings" IsEnabled="{Binding Path=ZoneSelected}" Click="PortSetting_Click_1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Grid.Column="2" Name="UsersButton"  Content="Users" IsEnabled="{Binding Path=ZoneSelected}"  Click="Users_Click_1" 
+                         HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                  
+
+                </UniformGrid>
+            </GroupBox>
+        </Grid>
+        <Grid DockPanel.Dock="Left"  Height="Auto" Width="Auto">
+            <GroupBox MinWidth="350" >
+                <GroupBox.Header>
+                    <Label Foreground="White" Content="ULBs" Background="Black" BorderBrush="Black" BorderThickness="0"
+                             HorizontalAlignment="Center" Width="Auto" HorizontalContentAlignment="Center" MinWidth="20"/>
+                </GroupBox.Header>
+                <ScrollViewer Background="Black" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <TreeView Name="GEMSPLTree" Background="Black" ItemsSource="{Binding }" 
+                              SelectedItemChanged="GEMSPLTree_SelectedItemChanged_1" >
+                        <TreeView.ContextMenu>
+                            <ContextMenu Name="AddULBContextMenu">
+                                <MenuItem Name="AddULB" Header="Add ULB" Click="AddULB_Click_1"
+                                          />
+                            </ContextMenu>
+                        </TreeView.ContextMenu>
+                    </TreeView>
+                </ScrollViewer>
+            </GroupBox>
+
+
+
+        </Grid>
+
+
+
+        <Grid Name="Transient"   HorizontalAlignment="Stretch"  >
+            
+        </Grid>
+
+
+    </DockPanel>
+</UserControl>

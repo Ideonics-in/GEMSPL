@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Express 2012 for Windows Desktop
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEMSPL", "GEMSPL\GEMSPL.csproj", "{31EA0DE7-E37D-4074-A6D1-7C313AED60E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialPortDriver", "SerialPortDriver\SerialPortDriver.csproj", "{8699B222-7741-48BE-98A6-A0080F8F2A48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSM_SMS", "GSM_SMS\GSM_SMS.csproj", "{D612145D-4953-44E8-8040-E0C2B8A80610}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31EA0DE7-E37D-4074-A6D1-7C313AED60E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31EA0DE7-E37D-4074-A6D1-7C313AED60E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31EA0DE7-E37D-4074-A6D1-7C313AED60E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31EA0DE7-E37D-4074-A6D1-7C313AED60E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8699B222-7741-48BE-98A6-A0080F8F2A48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8699B222-7741-48BE-98A6-A0080F8F2A48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8699B222-7741-48BE-98A6-A0080F8F2A48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8699B222-7741-48BE-98A6-A0080F8F2A48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D612145D-4953-44E8-8040-E0C2B8A80610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D612145D-4953-44E8-8040-E0C2B8A80610}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D612145D-4953-44E8-8040-E0C2B8A80610}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D612145D-4953-44E8-8040-E0C2B8A80610}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

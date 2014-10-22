@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="GEMSPL.DashBoard.Manage.PortSetttingsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+              Background="Black">
+    <Grid Background="Black" Margin="10,0,0,5">
+        <GroupBox  Name="ComSetting" MinHeight="200" MinWidth="350" HorizontalAlignment="Center" VerticalAlignment="Center" >
+            <GroupBox.Header>
+                <Label Foreground="White" Content="Port Settings" Background="Black" BorderBrush="Black" BorderThickness="0"
+                             HorizontalAlignment="Center" Width="Auto" HorizontalContentAlignment="Center" MinWidth="20"/>
+            </GroupBox.Header>
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" ShowGridLines="False">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" Content="COM Port" Foreground="White" FontSize="20"></Label>
+                <ComboBox Name="ComPort" Grid.Column="1" Grid.Row="0" MinWidth="200"
+                          FontSize="20" MinHeight="30" Margin="5"  Padding="5"></ComboBox>
+
+                <Label Grid.Column="0" Grid.Row="1" Content="Baud Rate" Foreground="White" FontSize="20"></Label>
+                <ComboBox Name="BaudRate" Grid.Column="1" Grid.Row="1"
+                          MinWidth="200" MinHeight="30" Margin="5" Padding="5" SelectedIndex="0"
+                          FontSize="20">
+
+
+                </ComboBox>
+
+                <Label Grid.Column="0" Grid.Row="2" Content="HandShaking" Foreground="White" FontSize="20"></Label>
+                <ComboBox Name="Handshaking" Grid.Column="1" Grid.Row="2" MinWidth="200" MinHeight="40"
+                         FontSize="20" Margin="5" Padding="5" SelectedIndex="0">
+
+                </ComboBox>
+
+
+
+
+
+                <Button Name="Save" Grid.Column="0" Grid.Row="4"  Content="Save" Height="Auto" Width="Auto" MinWidth="75" 
+                            MinHeight="25" FontSize="20" Margin="5" Click="Save_Click_1"></Button>
+
+                <Button Name="Cancel" Grid.Column="1" Grid.Row="4"  Content="Cancel" Height="Auto" Width="Auto" MinWidth="75" 
+                            MinHeight="25" FontSize="20" Margin="5" Click="Cancel_Click_1"></Button>
+
+
+            </Grid>
+        </GroupBox>
+
+    </Grid>
+</UserControl>

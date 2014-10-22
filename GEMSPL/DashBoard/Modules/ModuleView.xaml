@@ -1,0 +1,107 @@
+﻿<UserControl x:Class="GEMSPL.DashBoard.Modules.ModuleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            Background="Black" Unloaded="UserControl_Unloaded_1"  >
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="HorizontalContentAlignment" Value="Right"/>
+            <Setter Property="MinWidth" Value="125"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="FontSize" Value="15" />
+            <Setter Property="MinWidth" Value="90"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="MinHeight" Value="30"/>
+
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid Margin="10,0,0,0">
+        <GroupBox Name="MainGroupBox" Grid.Row="0" Grid.Column="0" >
+            <GroupBox.Header>
+                <Label Foreground="White" Content="Module" Background="Black" BorderBrush="Black" BorderThickness="0"
+                             HorizontalAlignment="Center" Width="Auto" HorizontalContentAlignment="Center" MinWidth="20"/>
+            </GroupBox.Header>
+            <Grid Name="ParametersGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                   
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="200"/>
+                    <ColumnDefinition Width="Auto" MinWidth="200"/>
+                    <ColumnDefinition Width="Auto" MinWidth="200"/>
+                    <ColumnDefinition Width="Auto" MinWidth="200"/>
+                </Grid.ColumnDefinitions>
+
+                <!--<Grid Name="LocationGrid" Grid.Row="0"  Margin="5,5" Height="Auto">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Content="Location:" 
+                        VerticalAlignment="Center"  />
+                    <TextBox Grid.Column="1" Name="LocationTB" 
+                        IsReadOnly="False" HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                </Grid>-->
+
+                <Grid Name="NoGrid" Grid.Row="0" Grid.Column="0" Margin="5,5" Height="Auto">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Content=" Module No:" HorizontalContentAlignment="Right" 
+                        VerticalAlignment="Center"  />
+                    <TextBlock Grid.Column="1" Name="No"  Foreground="White" Text="{Binding Path=Details.No}"
+                         HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+
+                <Grid Name="RRGrid" Grid.Row="0" Grid.Column="1" Margin="5,5" Height="Auto">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Content=" RR Number:" HorizontalContentAlignment="Right" 
+                        VerticalAlignment="Center"  />
+                    <TextBlock Grid.Column="1" Name="RR"  Foreground="White" Text="{Binding Path=Details.RR}"
+                         HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Name="SIMGrid" Grid.Row="0" Grid.Column="2" Margin="5,5" Height="Auto">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Content="SIM Number:" 
+                        VerticalAlignment="Center"  />
+                    <TextBlock Grid.Column="1" Name="SIM"  Foreground="White" Text="{Binding Path=Details.SIM}"
+                         HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Name="LoadGrid" Grid.Row="0" Grid.Column="3"  Margin="5,5" Height="Auto">
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0"  Content="Load kW:" 
+                        VerticalAlignment="Center"  />
+                    <TextBlock Grid.Column="1" Name="Load"  Foreground="White" Text="{Binding Path=Details.Load}"
+                         HorizontalAlignment="Left" VerticalAlignment="Center"  />
+                </Grid>
+
+                <Grid Name="ImageGrid" Grid.Row="3" Grid.ColumnSpan="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <Image Name="LocationImage"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,0,0,10" Width="640" Height="400" />
+                </Grid>
+
+            </Grid>
+        </GroupBox>
+    </Grid>
+</UserControl>
